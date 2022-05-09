@@ -20,7 +20,8 @@ public class BookDetail_jsp extends HttpJspBase {
 
 		String userData = request.getParameter("Data"); 
 		out.println (userData);
-		printSanitizedName(userData);
+		String sanitizedData = DOMPurify.sanitize(userData);
+		printSanitizedName(sanitizedData);
 	}
 	public static void loadName () {
 
